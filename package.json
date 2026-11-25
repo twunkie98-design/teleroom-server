@@ -1,0 +1,53 @@
+{
+  "name": "teleroom",
+  "version": "1.0.0",
+  "description": "Video meetings, webinars and live rooms inside Telegram",
+  "author": "Teleroom Team",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "serve": "node server.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build:msi": "electron-builder --win msi --publish never"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.teleroom.app",
+    "productName": "Teleroom",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "ASSETS/**/*",
+      "ICONS/**/*",
+      "MEDIAPIP/**/*",
+      "INDEX65C.HTM",
+      "MANIFEST.WEB",
+      "TELEGRAM.HTM"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "msi",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "msi": {
+      "upgradeCode": "{B5E96D8F-3E7F-4D5B-9A0F-8B1C2D3E4F5A}",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "oneClick": false
+    }
+  }
+}
